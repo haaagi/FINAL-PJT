@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <navbar />
     <div>
       <ul>
         <li v-for="movie in movies" :key="movie.id">
@@ -9,8 +10,6 @@
     </div>
 
 
-    <MovieHome />
-
   </div>
 </template>
 
@@ -18,7 +17,8 @@
 // @ is an alias to /src
 // import router from '../router';
 const axios = require('axios'); 
-import MovieHome from '../components/MovieHome';
+// import MovieHome from '../components/MovieHome';
+import navbar from '../components/navbar';
 
 
 export default {
@@ -29,18 +29,9 @@ export default {
     }
   },
   components: {
-    MovieHome,
+    navbar,
   },
-  // methods: {
-    // addmovie() {
-    //   axios.get('http://localhost:8000/api/movies/')
-    //   .then(res=> {
-    //     this.movie.push(res.data);
-        
-    //     console.log(res)
-    //   })
-    // }
-  // },
+
   created () {
     axios.get('http://localhost:8000/api/movies/')
       .then(res=> this.movies = res.data)
