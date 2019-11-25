@@ -6,5 +6,4 @@ app_name = 'movies'
 
 urlpatterns = [
     path('movies/', views.movielist),
-
 ]

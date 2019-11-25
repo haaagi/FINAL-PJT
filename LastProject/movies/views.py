@@ -9,4 +9,4 @@ from .models import Movie
 def movielist(request):
     if request.method == 'GET':
         movie = Movie.objects.get(id=1)
-        return JsonResponse(movie, safe=False)
+        return movie
