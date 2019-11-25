@@ -4,13 +4,12 @@ from .models import Movie
 from .serializers import MovieSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
-@csrf_exempt
+
 @api_view(['GET'])
 def movielist(request):
-    movie = get_object_or_404(Movie, id=1)
-    serializer = MovieSerializer(instance=movie)
+    movies = Movie.objects.all()
+    serializer = MovieSerializer(instance=movies, many=True)
     return Response(serializer.data)
     

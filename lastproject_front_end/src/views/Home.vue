@@ -1,9 +1,12 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <div>
-      <input @click="addmovie" type="submit">나와라
-      {{ movie.title}}
+      
+      <ul>
+        <li v-for="movie in movies" :key="movie.id">
+          {{ movie.title }}
+        </li>
+      </ul>
     </div>
     <MovieHome />
   </div>
@@ -11,7 +14,7 @@
 
 <script>
 // @ is an alias to /src
-import router from '../router';
+// import router from '../router';
 const axios = require('axios'); 
 import MovieHome from '../components/MovieHome';
 
@@ -20,7 +23,7 @@ export default {
   name: 'home',
   data () {
     return {
-      movie: [],
+      movies: [],
     }
   },
   components: {
@@ -31,10 +34,15 @@ export default {
       axios.get('http://localhost:8000/api/movies/')
       .then(res=> {
         this.movie.push(res.data);
-        router.push('/');
+        
         console.log(res)
       })
     }
+  },
+  created () {
+    axios.get('http://localhost:8000/api/movies/')
+      .then(res=> this.movies = res.data)
+      .catch(err => console.error(err))
   }
 }
 </script>
