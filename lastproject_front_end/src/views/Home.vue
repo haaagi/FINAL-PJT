@@ -32,6 +32,7 @@ export default {
       .then(res=> {
         this.movie.push(res.data);
         router.push('/');
+        console.log(res)
       })
     }
   }
