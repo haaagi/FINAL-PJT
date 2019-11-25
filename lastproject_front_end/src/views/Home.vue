@@ -29,16 +29,16 @@ export default {
   components: {
     MovieHome,
   },
-  methods: {
-    addmovie() {
-      axios.get('http://localhost:8000/api/movies/')
-      .then(res=> {
-        this.movie.push(res.data);
+  // methods: {
+  //   addmovie() {
+  //     axios.get('http://localhost:8000/api/movies/')
+  //     .then(res=> {
+  //       this.movie.push(res.data);
         
-        console.log(res)
-      })
-    }
-  },
+  //       console.log(res)
+  //     })
+  //   }
+  // },
   created () {
     axios.get('http://localhost:8000/api/movies/')
       .then(res=> this.movies = res.data)
