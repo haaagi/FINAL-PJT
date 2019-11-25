@@ -9,7 +9,7 @@
     </div>
 
 
-<MovieHome />
+    <MovieHome />
 
   </div>
 </template>
@@ -32,14 +32,14 @@ export default {
     MovieHome,
   },
   // methods: {
-  //   addmovie() {
-  //     axios.get('http://localhost:8000/api/movies/')
-  //     .then(res=> {
-  //       this.movie.push(res.data);
+    // addmovie() {
+    //   axios.get('http://localhost:8000/api/movies/')
+    //   .then(res=> {
+    //     this.movie.push(res.data);
         
-  //       console.log(res)
-  //     })
-  //   }
+    //     console.log(res)
+    //   })
+    // }
   // },
   created () {
     axios.get('http://localhost:8000/api/movies/')
@@ -47,5 +47,7 @@ export default {
       .catch(err => console.error(err))
   }
 }
+
+
 </script>
 
