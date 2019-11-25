@@ -1,14 +1,16 @@
 <template>
   <div class="home">
     <div>
-      
       <ul>
         <li v-for="movie in movies" :key="movie.id">
           {{ movie.title }}
         </li>
       </ul>
     </div>
-    <MovieHome />
+
+
+<MovieHome />
+
   </div>
 </template>
 
@@ -46,3 +48,4 @@ export default {
   }
 }
 </script>
+
