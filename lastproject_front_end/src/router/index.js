@@ -12,6 +12,11 @@ const router = new VueRouter({
     name: 'home',
     component: Home
   },
+  {
+    path: '/moviedetail/',
+    name: 'moviedetail',
+    component: MovieDetail
+  },
 ]
 })
 

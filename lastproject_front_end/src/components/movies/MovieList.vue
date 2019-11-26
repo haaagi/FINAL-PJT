@@ -1,39 +1,33 @@
 <template>
   <div>
-    
-<div>
-  <b-card title="Card Title" no-body>
-    <b-card-header header-tag="nav">
-      <b-nav card-header pills v-model="genreType">
-        <b-nav-item active v-for="genre in genreList" :key="genre" :value="genre">{{ genre }}</b-nav-item>
-        <b-nav-item>Inactive</b-nav-item>
-        <b-nav-item disabled>Disabled</b-nav-item>
-      </b-nav>
-    </b-card-header>
+<div class="container">
+  <b-nav pills align="center">
+    <b-nav-item-dropdown id="my-nav-dropdown" text="GENRE" toggle-class="nav-link-custom" right>
 
-    <b-card-body class="text-center">
-      <b-card-text>
-              <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
-        {{ movie }}
-      </SelectedMovieList>
-      </b-card-text>
+      <b-dropdown-item @click="selectGenre(genre)" v-for="genre in genreList" :key="genre">{{ genre }}</b-dropdown-item>
+      <b-dropdown-divider></b-dropdown-divider>
 
-    </b-card-body>
-  </b-card>
+    </b-nav-item-dropdown>
+  </b-nav>
+
+ 
+      <b-card-body>
+          <b-card-text class="text-center row">
+            <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
+              {{ movie }}
+            </SelectedMovieList>
+          </b-card-text>
+
+        </b-card-body>
+
+  
+
+
+
 </div>
 
-     <!-- <div>
-      <select v-model="genreType">
-        <option v-for="genre in genreList" :key="genre" :value="genre">{{ genre }}</option>
-      </select>
-    </div> 
 
-    <div class="row">
-      <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
-        {{ movie }}
-      </SelectedMovieList>
-    </div>   -->
-  </div> 
+  </div>
 </template>
 
 
@@ -46,24 +40,28 @@
       // MovieModal,
       SelectedMovieList,
     },
-    data() {
-      return {
-        genreType: '전체보기',
-        genreList: ['전체보기', '드라마', '액션', '범죄', '스릴러', '코미디', '공포(호러)', '멜로/로맨스', '미스터리', '애니메이션', '사극', 'SF']
-
-      }
-    },
     props: {
       movies: Array,
     },
+    data() {
+      return {
+        selectedGenre: '전체보기',
+        genreList: ['전체보기', '드라마', '액션', '범죄', '스릴러', '코미디', '공포(호러)', '멜로/로맨스', '미스터리', '애니메이션', '사극', 'SF'],
+        // temp: '0',
+      }
+    },
+    methods: {
+      selectGenre(genre) {
+        this.selectedGenre = genre;
+      }
+    },
     computed: {
       filterMovies() {
-
-        if (this.genreType === '전체보기') {
-          return this.movies
-        } 
-        else {
-            return this.movies.filter(movie => movie.genre1 === this.genreType || movie.genre3 === this.genreType)
+        if (this.selectedGenre === '전체보기') {
+          return this.movies;
+        } else {
+          return this.movies.filter(movie => movie.genre1 === this.selectedGenre || movie.genre3 === this
+          .selectedGenre);
         }
       }
     },
