@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <MovieList :movies="movies" />
+    <MovieList :movies="movies"/>
   </div>
 </template>
 

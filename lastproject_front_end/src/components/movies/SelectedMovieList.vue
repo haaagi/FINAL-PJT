@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="col-3 my-3">
         <img :src="movie.poster_url" :alt="movie.title">
         <p>{{ movie.title }}</p>
     </div>
