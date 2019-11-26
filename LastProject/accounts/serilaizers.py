@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-
+from movies.serializers import ReviewSerializer
 
 User = get_user_model()
 
@@ -9,7 +9,11 @@ class UserCreationSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'password', 'first_name', 'last_name', 'age', 'gender', 'kakao_id', 'stars')
 
-
+class UserSerializer(serializers.ModelSerializer):
+    review_set = ReviewSerializer(many=True)
+    class Meta:
+        model = User
+        fields = ('id','username','review_set',)
 
         
 
