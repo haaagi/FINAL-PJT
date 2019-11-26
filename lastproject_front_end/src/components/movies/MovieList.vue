@@ -4,6 +4,7 @@
         <ul>
             <li v-for="movie in movies" :key="movie.id">
                 <img :src="movie.poster_url" :alt="movie.title">
+                {{ movie.title }}
             </li>
         </ul>  
     </div>
@@ -19,7 +20,7 @@ export default {
         }
     },
     props: {
-        Movies: Array,
+        movies: Array,
     }
 }
 </script>

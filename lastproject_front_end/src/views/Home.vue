@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style>
-body { font-family: sans-serif; }
+/* body { font-family: sans-serif; }
 
 .scene {
   width: 200px;
@@ -75,5 +75,5 @@ body { font-family: sans-serif; }
 .card__face--back {
   background: blue;
   transform: rotateY(180deg);
-}
+} */
 </style>
