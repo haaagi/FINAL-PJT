@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import VueSession from 'vue-session'
+import VueSession from 'vue-session' // 발급받은 token을 sessionstorage에 저장하는 것을 도와줌. 
 
 import BootstrapVue from 'bootstrap-vue'
 
