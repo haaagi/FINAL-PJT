@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
-
-=======
 /* body { font-family: sans-serif; }
 
 .scene {
@@ -79,5 +76,4 @@ export default {
   background: blue;
   transform: rotateY(180deg);
 } */
->>>>>>> 9eb14928196fedc11e13fd6be993742a7bcdcd11
 </style>
