@@ -13,12 +13,6 @@ const router = new VueRouter({
     component: Home
   },
   {
-<<<<<<< HEAD
-    path: '/moviedetail/',
-    name: 'moviedetail',
-    component: MovieDetail
-  },
-=======
     path: '/login',
     name: 'login',
     component: Login
@@ -27,8 +21,12 @@ const router = new VueRouter({
     path: '/signup',
     name: 'signup',
     component: Signup
+  },
+  {
+    path: '/moviedetail',
+    name: 'moviedetail',
+    component: MovieDetail
   }
->>>>>>> ee7582fc596b8abc4dfa0e7d7902120762451192
 ]
 })
 
