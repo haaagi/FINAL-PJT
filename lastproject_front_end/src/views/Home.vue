@@ -1,52 +1,7 @@
 <template>
-
-<div class="home">
-<div class="scene scene--card">
-  <div class="card">
-    <div class="card__face card__face--front">front</div>
-    <div class="card__face card__face--back">back</div>
+  <div class="home">
+    <MovieList :movies="movies" />
   </div>
-</div>
-<p>Click card to flip.</p>
-
-</div>
-
-
-  <!-- <div class="home">
-   <b-card-group>
-<div v-for="movie in movies" :key="movie.id">
-  <b-card
-    :title="movie.title"
-    :img-src="movie.poster_url"
-    :img-alt="movie.title"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-    img-width="100"
-  
-  >
-
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-
-</div>
-  </b-card-group>
-</div> -->
-
-
-
-
-    <!-- <div>
-      <ul>
-        <li v-for="movie in movies" :key="movie.id">
-          <img :src="movie.poster_url" :alt="movie.title">
-          <p>{{movie.title}}</p>
-        </li>
-      </ul>
-    </div>
-
-  </div> -->
 </template>
 
 <script>
@@ -54,20 +9,17 @@
 // import router from '../router';
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
-
-// var card = document.querySelector('.card');
-// card.addEventListener( 'click', function() {
-//   card.classList.toggle('is-flipped');
-// });
+import MovieList from'../components/movies/MovieList';
 
 export default {
   name: 'home',
+  components: {
+    MovieList,
+  },
   data () {
     return {
       movies: [],
     }
-  },
-  components: {
   },
   created () {
     axios.get('http://localhost:8000/api/movies/')
