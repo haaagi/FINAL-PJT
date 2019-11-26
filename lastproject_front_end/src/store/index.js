@@ -1,14 +1,14 @@
-import Vuex from 'vuex';
-import Vue from 'vue';
-import auth from './modules/auth';
+// import Vuex from 'vuex';
+// import Vue from 'vue';
+// import auth from './modules/auth';
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  modules: {
-    auth,
-  }
-});
+// const store = new Vuex.Store({
+//   modules: {
+//     auth,
+//   }
+// });
 
 
 
