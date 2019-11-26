@@ -1,15 +1,6 @@
 <template>
   <div class="home">
-    <div>
-      <ul>
-        <li v-for="movie in movies" :key="movie.id">
-          <img :src="movie.poster_url" :alt="movie.title">
-          <p>{{movie.title}}</p>
-        </li>
-      </ul>
-    </div>
-
-
+    <MovieList :movies="movies" />
   </div>
 </template>
 
@@ -18,16 +9,17 @@
 // import router from '../router';
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
-
+import MovieList from'../components/movies/MovieList';
 
 export default {
   name: 'home',
+  components: {
+    MovieList,
+  },
   data () {
     return {
       movies: [],
     }
-  },
-  components: {
   },
   created () {
     axios.get('http://localhost:8000/api/movies/')
