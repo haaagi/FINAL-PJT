@@ -23,9 +23,9 @@ const router = new VueRouter({
     component: Signup
   },
   {
-    path: '/moviedetail',
-    name: 'moviedetail',
-    component: MovieDetail
+    path: '/moviedetailpage',
+    name: 'moviedetailpage',
+    component: MovieDetailPage
   }
 ]
 })
