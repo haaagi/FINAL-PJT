@@ -1,10 +1,31 @@
 <template>
-  
+  <div>
+      <ul v-for="user in users" :key="user.id">
+          <li> {{ user.username }}</li>
+      </ul>
+  </div>
 </template>
 
 <script>
 export default {
-
+    name: 'UserList',
+    data () {
+        return {
+            users: [],
+        }
+    },
+    created () {
+        const hash = sessionStorage.getItem('jwt');
+        const options = {
+        headers: {
+            Authorization:'JWT ' + hash
+        }
+    }
+    console.log(hash)
+    axios.get('http://localhost:8000/api/accounts/' , options)
+      .then(res=> this.users = res.data)
+      .catch(err => console.error(err))
+    }
 }
 </script>
 

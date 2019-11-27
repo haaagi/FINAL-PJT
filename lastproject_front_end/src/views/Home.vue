@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <UserDetail  />
     <MovieList :movies="movies"/>
     
   </div>
@@ -12,19 +11,16 @@
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
 import MovieList from'../components/movies/MovieList';
-import UserDetail from '../components/accounts/UserDetail'
-import UserList from '../components/accounts/UserList'
+
+
 export default {
   name: 'home', 
   components: {
     MovieList,
-    UserDetail,
-    UserList,
   },
   data () {
     return {
       movies: [],
-      users:[],
     }
   },
   created () {
@@ -38,10 +34,7 @@ export default {
     axios.get('http://localhost:8000/api/movies/', options)
       .then(res=> this.movies = res.data)
       .catch(err => console.error(err))
-    console.log(hash)
-    axios.get('http://localhost:8000/api/accounts/' , options)
-      .then(res=> this.users = res.data)
-      .catch(err => console.error(err))
+    
   } 
 }
 
