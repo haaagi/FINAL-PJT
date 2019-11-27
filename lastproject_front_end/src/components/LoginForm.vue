@@ -26,7 +26,7 @@
                     placeholder="비밀번호를 입력해주세요">
             </div>
 
-            <button class="btn btn-primary">로그인</button>
+            <button class="btn btn-primary" @click.prevent="login(credentials)">로그인</button>
         </form>
     </div>
 </template>

@@ -8,8 +8,14 @@
       </span>
       
       <span v-else>
-        <router-link to="/login">Login</router-link>
+        <div>
+          <router-link to="/login">Login</router-link>
+        </div>
+        <div>
+          <router-link to="/signup">sign-up</router-link>
+        </div>
       </span>
+
     </div>
     
     <div class="container col-6">

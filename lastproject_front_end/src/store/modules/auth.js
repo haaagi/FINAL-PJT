@@ -44,7 +44,7 @@ const actions = {
 
     login: ({ commit, getters }, credentials) => {
         if (getters.isLoggedIn) {
-            router.push('/')
+            router.push('/home')
         } else { // 로그인이 안됐다면
             commit('clearErrors');
             commit('setLoading',true);
@@ -61,7 +61,7 @@ const actions = {
                 .then(token => {
                     commit('setToken',token.data.token);
                     commit('setLoading',false);
-                    router.push('/');
+                    router.push('/home');
                 })
                 .catch(err => {
                     if (!err.response) { // no reponse
@@ -81,7 +81,7 @@ const actions = {
     },
     signup: ({ commit, getters, dispatch }, userInput) => {
         if (getters.isLoggedIn) {
-            router.push('/');
+            router.push('/home');
         } else {
             axios.post('http://localhost:8000/api/accounts/', userInput)
                 .then(res => {
@@ -92,7 +92,7 @@ const actions = {
                             password: userInput.password,
                         }
                         dispatch('login',credentials)
-                        router.push('/')
+                        router.push('/home')
                     } else {
                         router.push('/signup')
                     }}
