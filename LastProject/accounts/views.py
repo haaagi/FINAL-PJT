@@ -30,6 +30,7 @@ def userinfo(request):
 def userlist(request):
     users = User.objects.all()
     serializer = UserSerializer(instance=users, many=True)
+    # from IPython import embed; embed()
     return Response(serializer.data)
 
 # @api_view(['POST'])   

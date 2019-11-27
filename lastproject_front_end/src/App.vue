@@ -4,8 +4,8 @@
     <navbar />
       <span v-if="isLoggedIn">
         <router-link to="/">Home</router-link> |
-        <a @click.prevent="logout" href="">Logout</a>
-        <router-link to="/userdetail">userdetail</router-link>
+        <a @click.prevent="logout" href="">Logout</a> | 
+        <router-link to="/userdetail">userdetail</router-link> |
         <router-link to="/userlist">userlist</router-link>
       </span>
       

@@ -22,7 +22,7 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-        axios.post('http://localhost:8000/api/accounts/userinfo/',null , options)
+        axios.post('http://localhost:8000/api/accounts/userlist/',null , options)
         .then(res=> this.users = res.data)
     }
 }
