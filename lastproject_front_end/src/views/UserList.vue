@@ -3,11 +3,7 @@
       <ul v-for="user in users" :key="user.id">
           <li> {{ user.age }}</li>
           <div>
-                   <div class="ui two buttons">
-        <div class="ui basic green button" >팔로우</div>
-
-      </div>
-
+            <div @click="follow(user.id)" class="ui basic green button">팔로우</div>
           </div>
       </ul>
   </div>
@@ -21,15 +17,24 @@ export default {
     data () {
         return {
             users: [],
+
         }
     },
-    method: {
-        // nothing (star_id) {
-            // axios.get
+    methods: {
+        follow (star_id) {
+            const hash = sessionStorage.getItem('jwt');
+            const options = {
+            headers: {
+                Authorization:'JWT ' + hash
+            }
+        }
+            axios.get(HOST + 'api/accounts/userfollow/'+star_id + '/', options)
+            .then(res=> console.log(res))
+            .catch(err => console.error(err))
+            
+        }
 
-        },
-
-    // },
+    },
     created () {
         const hash = sessionStorage.getItem('jwt');
         const options = {

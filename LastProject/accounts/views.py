@@ -33,7 +33,7 @@ def userlist(request):
     # from IPython import embed; embed()
     return Response(serializer.data)
 
-@api_view(['POST'])   
+@api_view(['GET'])   
 def userfollow(request,user_id):
     fan = request.user
     star = get_object_or_404(User, id=user_id)
