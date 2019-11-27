@@ -6,6 +6,10 @@
       <div class="modal-header">
 
         <h5 class="modal-title">{{ movie.title }}</h5>
+        
+        <button><i class="heart icon"></i></button>
+        <button><i class="heart outline icon"></i></button>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
