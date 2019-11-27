@@ -1,5 +1,6 @@
 const axios = require('axios');
 import router from '../../router';
+import { userInfo } from 'os';
 
 const state = {
     token: null,
@@ -82,9 +83,14 @@ const actions = {
         if (getters.isLoggedIn) {
             router.push('/');
         } else {
-            axios.post('http://localhost:8000/signup', userInput)
+            axios.post('http://localhost:8000/accounts/', {username, password, age, gender, kakao_id})
                 .then(res => {
                     if (res.status === 200) {
+                        const credentials = {
+                            username: userInfo.username,
+                            password: userInfo.password,
+                        }
+                        dispatch('/login',credentials)
                         router.push('/')
                     } else {
                         router.push('login/')
