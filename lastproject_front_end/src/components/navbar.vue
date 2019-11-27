@@ -19,17 +19,17 @@
             <em>User</em>
           </template>
             <div v-if="isLoggedIn">
+              <router-link to="/userdetail" class="dropdown-item" role="menuitem" target="_self">userdetail</router-link>
               
-              <router-link to="/userdetail"><b-dropdown-item href="#">userdetail</b-dropdown-item></router-link>
-              
-              <router-link to="/userlist"><b-dropdown-item href="#">User List</b-dropdown-item></router-link>
+              <router-link to="/userlist" class="dropdown-item" role="menuitem" target="_self">User list</router-link>
               <b-dropdown-item href="#" @click.prevent="logout">Log Out</b-dropdown-item>
 
             </div>
             <div v-else>
-              
-               <router-link to="/login"> <b-dropdown-item>Login</b-dropdown-item></router-link>
-               <router-link to="/signup"><b-dropdown-item>sign-up </b-dropdown-item></router-link>
+              <!-- <a role="menuitem" target="_self" href="#" class="dropdown-item">Login</a> -->
+
+              <router-link to="/login" class="dropdown-item" role="menuitem" target="_self"> Login</router-link>
+              <router-link to="/signup" class="dropdown-item" role="menuitem" target="_self">Sign up</router-link>
               
             </div>
         </b-nav-item-dropdown>
@@ -43,16 +43,17 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-  export default {
-    name: 'navbar',
-    methods: {
-    ...mapActions(['login', 'logout']),
-  },
-  computed: {
-    ...mapGetters(['isLoggedIn']),
-  }, 
-  
-  }
+// import router from '../router'
+export default {
+  name: 'Navbar',
+  methods: {
+  ...mapActions(['login', 'logout']),
+},
+computed: {
+  ...mapGetters(['isLoggedIn']),
+}, 
+
+}
 </script>
 
 <style>

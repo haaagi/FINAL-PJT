@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-    <navbar />
-      <span v-if="isLoggedIn">
+    <Navbar />
+      <!-- <span v-if="isLoggedIn">
         <router-link to="/">Home</router-link> |
         <a @click.prevent="logout" href="">Logout</a> | 
         <router-link to="/userdetail">userdetail</router-link> |
@@ -11,12 +11,12 @@
       
       <span v-else>
         <div>
-          <router-link to="/login">Login</router-link>
+          <router-link to="/login">로그인</router-link>
         </div>
         <div>
           <router-link to="/signup">sign-up</router-link>
         </div>
-      </span>
+      </span> -->
 
     </div>
     
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    navbar,
+    Navbar,
   },
   methods: {
     ...mapActions(['login', 'logout']),

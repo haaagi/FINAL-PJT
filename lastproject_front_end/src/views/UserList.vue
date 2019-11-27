@@ -2,6 +2,13 @@
   <div>
       <ul v-for="user in users" :key="user.id">
           <li> {{ user.age }}</li>
+          <div>
+                   <div class="ui two buttons">
+        <div class="ui basic green button">팔로우</div>
+        <div class="ui basic red button">팔로우취소</div>
+      </div>
+
+          </div>
       </ul>
   </div>
 </template>
