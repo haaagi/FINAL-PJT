@@ -18,8 +18,15 @@
           <template v-slot:button-content>
             <em>User</em>
           </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <div v-if="isLoggedIn">
+              <b-dropdown-item href="#">Profile</b-dropdown-item>
+              <b-dropdown-item href="#" @click.prevent="logout">Log Out</b-dropdown-item>
+
+            </div>
+            <div v-else>
+               <b-dropdown-item href="http://localhost:8080/login">Log In</b-dropdown-item>
+               <b-dropdown-item href="http://localhost:8080/signup">Sign Up</b-dropdown-item>
+            </div>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -30,8 +37,16 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
   export default {
-    name: 'navbar'
+    name: 'navbar',
+    methods: {
+    ...mapActions(['login', 'logout']),
+  },
+  computed: {
+    ...mapGetters(['isLoggedIn']),
+  }, 
+  
   }
 </script>
 
