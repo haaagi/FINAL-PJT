@@ -50,5 +50,7 @@ export default {
 
   Vuex(State Management System)
  */
+ #nav {
+  padding-top: 20px;
+}
 </style>
-
