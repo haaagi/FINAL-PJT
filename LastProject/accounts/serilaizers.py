@@ -7,13 +7,13 @@ User = get_user_model()
 class UserCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'age', 'gender', 'kakao_id', 'stars')
+        fields = ('id', 'username', 'password', 'age', 'gender', 'kakao_id')
 
 class UserSerializer(serializers.ModelSerializer):
     review_set = ReviewSerializer(many=True)
     class Meta:
         model = User
-        fields = ('id','username','review_set',)
+        fields = ('id','username','stars','review_set')
 
         
 

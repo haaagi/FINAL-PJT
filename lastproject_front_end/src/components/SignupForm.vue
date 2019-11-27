@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="age">Age</label>
-                <input v-model="userInput.age" type="integer" class="form-control" id="age"
+                <input v-model="userInput.age" type="number" class="form-control" id="age"
                     placeholder="나이를 입력해주세요">
             </div>
 
@@ -50,7 +50,7 @@
                     placeholder="kakao ID를 입력하세요">
             </div>
             <div class="row">
-                <button class="btn btn-primary" @click.prevent="signup(userInfo)">회원가입</button>
+                <button class="btn btn-primary" @click.prevent="signup(userInput)">회원가입</button>
             </div>
             
         </form>

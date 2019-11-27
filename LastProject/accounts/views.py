@@ -15,4 +15,4 @@ def signup(request):
         user.set_password(user.password)  # password 암호화하기 위해서 갈아끼운다. 
         user.save()
         return Response(status=200, data={'message': '회원가입 성공'})  # message => postman 에서 보기 위해서 설정(사용자는 볼 수 없다. )
-
+    

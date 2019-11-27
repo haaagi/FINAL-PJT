@@ -1,6 +1,6 @@
 const axios = require('axios');
 import router from '../../router';
-// import { userInput } from 'os';
+
 
 const state = {
     token: null,
@@ -85,6 +85,7 @@ const actions = {
         } else {
             axios.post('http://localhost:8000/api/accounts/', userInput)
                 .then(res => {
+                    console.log(res)
                     if (res.status === 200) {
                         const credentials = {
                             username: userInput.username,
@@ -93,7 +94,7 @@ const actions = {
                         dispatch('login',credentials)
                         router.push('/')
                     } else {
-                        router.push('/login')
+                        router.push('/signup')
                     }}
                 )
                 .catch(err => {
