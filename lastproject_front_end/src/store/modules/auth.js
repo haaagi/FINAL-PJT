@@ -20,6 +20,7 @@ const getters = {
     },
     getErrors: state =>state.errors,
     isLoading: state =>state.loading,
+    getuserinfo: state => state.userinfo
 };
 
 const mutations = {

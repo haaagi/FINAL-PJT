@@ -1,7 +1,8 @@
 <template>
   <div class="home">
+    <UserDetail  />
     <MovieList :movies="movies"/>
-    <UserDetail :userinfo="userinfo" />
+    
   </div>
 </template>
 
@@ -21,7 +22,6 @@ export default {
   data () {
     return {
       movies: [],
-      userinfo: [],
     }
   },
   created () {

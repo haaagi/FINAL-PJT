@@ -19,8 +19,6 @@ export default {
   },
   data () {
     return {
-      selecte_id: 0,
-      movieOne: [],
     }
   },
   mounted () {
