@@ -13,7 +13,7 @@
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
             
-              <router-link tag="b-button" to="/moviedetailpage">go</router-link>
+              <router-link tag="b-button" to="/moviedetailpage" @click.prevent="moviePick(movie.id)">go</router-link>
             
           </p>
         </div>
@@ -30,12 +30,18 @@
 
 <script>
 // import router from '../../router';
+import {
+        mapActions
+    } from 'vuex';
 
 export default {
     name: 'SelectedMovieList',
     props:{
         movie: Object,
     }, 
+    methods: {
+            ...mapActions(['moviePick']),
+        },
 
     // mounted () {
     //   router.push("/moviedetail");
