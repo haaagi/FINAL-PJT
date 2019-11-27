@@ -26,6 +26,7 @@ def userinfo(request):
 
 @api_view(['GET'])
 def userlist(request):
+    print(request.data)
     users = User.objects.all()
     serializer = UserSerializer(instance=users, many=True)
     return Response(serializer.data)

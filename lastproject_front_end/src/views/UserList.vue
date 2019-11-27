@@ -22,10 +22,9 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-    console.log(hash)
-    axios.get('http://localhost:8000/api/accounts/' , options)
-      .then(res=> this.users = res.data)
-      .catch(err => console.error(err))
+        axios.get('http://localhost:8000/api/accounts/' , options)
+        .then(res=> this.users = res.data)
+        .catch(err => console.error(err))
     }
 }
 </script>
