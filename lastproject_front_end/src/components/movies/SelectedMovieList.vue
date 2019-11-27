@@ -36,6 +36,7 @@ export default {
     props:{
         movie: Object,
     }, 
+
     emit : {
       movie: Object,
     }

@@ -1,7 +1,12 @@
 <template>
   <div :id="`movie-${movie.id}`">
-    <div>
-    <h1>movie detail 나와라 ㅠㅠㅠ </h1>
+
+    <h1>제발 ㅠㅠㅠ </h1>
+    <div :key="movie.id" :movie="movie">
+      <h1>{{ movie.title }}</h1>
+    </div>
+    
+
   <b-card no-body class="overflow-hidden" style="max-width: 540px;">
     <b-row no-gutters>
       <b-col md="6">
@@ -30,15 +35,20 @@
     
   </b-card>
 </div>
-  </div>
+
 </template>
 
 <script>
   export default {
     name: 'MovieDetail',
-    props: {
-      movie: Object,
-    }, 
+    // props: {
+    //   movie: Object,
+    // },
+    data () {
+      return {
+        movie: Object,
+      }
+    } 
     // data() {
     //   return {
     //     selectedMovie: Object,

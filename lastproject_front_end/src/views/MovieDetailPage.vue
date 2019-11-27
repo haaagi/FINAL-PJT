@@ -24,9 +24,9 @@ export default {
       movie: Object,
     }
   },
-  emit: {
-    movie: Object,
-  },
+  // emit: {
+  //   movie: Object,
+  // },
   mounted () {
       router.push("/moviedetailpage");
     },
