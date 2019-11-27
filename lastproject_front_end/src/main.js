@@ -15,10 +15,13 @@ import 'popper.js/dist/popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+import SuiVue from 'semantic-ui-vue';
+
 
 Vue.config.productionTip = false;
 Vue.use(VueSession);
 Vue.use(BootstrapVue);
+Vue.use(SuiVue);
 
 new Vue({
   router,
