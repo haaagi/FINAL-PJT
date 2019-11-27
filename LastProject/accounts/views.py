@@ -34,7 +34,7 @@ def userlist(request):
     return Response(serializer.data)
 
 @api_view(['POST'])   
-def follow(request,user_id):
+def userfollow(request,user_id):
     fan = request.user
     star = get_object_or_404(User, id=user_id)
     star.stars.add(fan)

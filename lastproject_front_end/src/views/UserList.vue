@@ -24,12 +24,12 @@ export default {
         }
     },
     method: {
-        nothing (star_id) {
+        // nothing (star_id) {
             // axios.get
 
-        }
+        },
 
-    },
+    // },
     created () {
         const hash = sessionStorage.getItem('jwt');
         const options = {
