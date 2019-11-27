@@ -41,24 +41,10 @@
 <script>
   export default {
     name: 'MovieDetail',
-    // props: {
-    //   movie: Object,
-    // },
-    data () {
-      return {
-        movie: Object,
-      }
-    } 
-    // data() {
-    //   return {
-    //     selectedMovie: Object,
-    //   }
-    // },
-    // methods: {
-    //   selectGenre(movie) {
-    //     this.selectedMovie = this.movie;
-    //   }
-    // },
+    props: {
+      movie: Object,
+    },
+  
 
 
 
