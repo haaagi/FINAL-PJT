@@ -1,25 +1,8 @@
 <template>
 <div>
-  <span v-if="isLoggedIn">
-        <router-link to="/">Home</router-link> |
-        <a @click.prevent="logout" href="">Logout</a>
-        <router-link to="/userdetail">userdetail</router-link>
-        <router-link to="/userlist">userlist</router-link>
-      </span>
-      
-      <span v-else>
-        <div>
-          <router-link to="/login">Login</router-link>
-        </div>
-        <div>
-          <router-link to="/signup">sign-up</router-link>
-        </div>
-    </span>
-
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">
-      <router-link to="/">Home</router-link> |
-    </b-navbar-brand>
+      <router-link to="/"><b-navbar-brand href="#">Home</b-navbar-brand></router-link> 
+    
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -36,15 +19,18 @@
             <em>User</em>
           </template>
             <div v-if="isLoggedIn">
-              <b-dropdown-item href="http://localhost:8080/userdetail">
-              </b-dropdown-item>
-              <b-dropdown-item href="#">User List</b-dropdown-item>
+              
+              <router-link to="/userdetail"><b-dropdown-item href="#">userdetail</b-dropdown-item></router-link>
+              
+              <router-link to="/userlist"><b-dropdown-item href="#">User List</b-dropdown-item></router-link>
               <b-dropdown-item href="#" @click.prevent="logout">Log Out</b-dropdown-item>
 
             </div>
             <div v-else>
-               <b-dropdown-item href="http://localhost:8080/login">Log In</b-dropdown-item>
-               <b-dropdown-item href="http://localhost:8080/signup">Sign Up</b-dropdown-item>
+              
+               <router-link to="/login"> <b-dropdown-item>Login</b-dropdown-item></router-link>
+               <router-link to="/signup"><b-dropdown-item>sign-up </b-dropdown-item></router-link>
+              
             </div>
         </b-nav-item-dropdown>
       </b-navbar-nav>
