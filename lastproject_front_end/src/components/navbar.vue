@@ -1,13 +1,30 @@
 <template>
 <div>
+  <span v-if="isLoggedIn">
+        <router-link to="/">Home</router-link> |
+        <a @click.prevent="logout" href="">Logout</a>
+        <router-link to="/userdetail">userdetail</router-link>
+        <router-link to="/userlist">userlist</router-link>
+      </span>
+      
+      <span v-else>
+        <div>
+          <router-link to="/login">Login</router-link>
+        </div>
+        <div>
+          <router-link to="/signup">sign-up</router-link>
+        </div>
+    </span>
+
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="http://localhost:8080/home">HOME</b-navbar-brand>
+    <b-navbar-brand href="#">
+      <router-link to="/">Home</router-link> |
+    </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -19,7 +36,9 @@
             <em>User</em>
           </template>
             <div v-if="isLoggedIn">
-              <b-dropdown-item href="#">Profile</b-dropdown-item>
+              <b-dropdown-item href="http://localhost:8080/userdetail">
+              </b-dropdown-item>
+              <b-dropdown-item href="#">User List</b-dropdown-item>
               <b-dropdown-item href="#" @click.prevent="logout">Log Out</b-dropdown-item>
 
             </div>
