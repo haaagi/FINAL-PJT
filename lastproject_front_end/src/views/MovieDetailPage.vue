@@ -11,7 +11,7 @@ import MovieDetail from'../components/movies/MovieDetail';
 export default {
   name: 'home',
   components: {
-    MovieDetail,
+    // MovieDetail,
   },
   data () {
     return {

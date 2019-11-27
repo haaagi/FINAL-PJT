@@ -73,7 +73,6 @@
                     age: '',
                     gender: '',
                     kakao_id: '',
-
                 }
             }
         },
