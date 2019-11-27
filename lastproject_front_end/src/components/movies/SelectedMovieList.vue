@@ -1,6 +1,5 @@
 <template>
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-
  <div class="container catalog">
   <div class="row">
     <div class="col s4">
@@ -12,11 +11,11 @@
         </div>
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
-            
-              <router-link tag="b-button" to="/moviedetailpage" @click.prevent="moviePick(movie.id)">go</router-link>
-            
+              <button class="btn btn-primary" data-toggle="modal" :data-target="`#movie-${movie.id}`">영화 정보 상세보기</button>
           </p>
         </div>
+        <MovieListItemModal :movie="movie" />
+
         <div class="card-action">
           <h4 class="content-title">{{ movie.title }}</h4>
         </div>
@@ -30,23 +29,17 @@
 
 <script>
 // import router from '../../router';
-import {
-        mapActions
-    } from 'vuex';
+import MovieListItemModal from './MovieListItemModal';
 
 export default {
     name: 'SelectedMovieList',
     props:{
         movie: Object,
     }, 
-    methods: {
-            ...mapActions(['moviePick']),
-        },
-
-    // mounted () {
-    //   router.push("/moviedetail");
-    // },
-
+    components: {
+      MovieListItemModal,
+    },
+    
 
 }
 </script>
