@@ -12,7 +12,9 @@
         </div>
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
-              <b-button href="주소/moviedetailpage" variant="primary">영화상세보기</b-button>
+              <b-button variant="primary">
+                <router-link to="/moviedetail">영화상세보기</router-link>
+                </b-button>
             </p>
         </div>
         <div class="card-action">
