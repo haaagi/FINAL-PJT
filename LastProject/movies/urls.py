@@ -8,4 +8,5 @@ urlpatterns = [
     path('movies/', views.movielist),
     # path('movie_detail/', views.movie_detail),
     # path('recommend/<int:user_id>', views.recommend),
+    path('movielike/<int:movie_id>/', views.movie_like),
 ]

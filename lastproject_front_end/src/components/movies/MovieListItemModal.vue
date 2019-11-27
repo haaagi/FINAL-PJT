@@ -7,7 +7,7 @@
 
         <h5 class="modal-title">{{ movie.title }}</h5>
         
-        <button><i class="heart icon"></i></button>
+        <button @click="likeMovie(movie.id)"><i class="heart icon"></i></button>
         <button><i class="heart outline icon"></i></button>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -30,40 +30,44 @@
 </div>
 
 
-
-  <!-- <div :id="`movie-${movie.id}`">
-    <b-modal id="modal-center" centered title="BootstrapVue">
-      <div class="my-4">
-        <div>
-          <b-card :img-src="movie.poster_url" img-left class="mb-3">
-            <b-card-text>
-              <h4>{{ movie.title }}</h4>
-              <span>({{ movie.title_eng }})</span>
-
-              <div>
-                박스오피스 순위: {{ movie.rank }} | ({{ movie.audience }})
-                관람등급: {{ movie.watch_grade }}
-              </div>
-              <hr>
-              <div>
-                {{ movie.description }}
-                <a :href="movie.naver_link">...더보기</a>
-              </div>
-            </b-card-text>
-          </b-card>
-        </div>
-      </div>
-    </b-modal>
-  </div> -->
-
 </template>
 
 <script>
+
+const HOST = process.env.VUE_APP_SERVER_HOST;
+const axios = require('axios'); 
+
   export default {
     name: 'MovieListItemModal',
     props: {
       movie: Object,
-    }
+    },
+    data () {
+      return {
+        // clickedMovie: 0,
+      }
+    },
+
+    methods: {
+      // clickLike(movie) {
+      //   this.clickedMovie = movie;
+      // },
+      likeMovie (movie_id) {
+            const hash = sessionStorage.getItem('jwt');
+            const options = {
+            headers: {
+                Authorization:'JWT ' + hash
+            }
+        }
+            axios.post(HOST + 'api/movielike/'+ movie_id + '/', options)            .then(res=> console.log(res))
+            .then(res=> console.log(res))
+            .catch(err => console.error(err))
+            
+        }
+
+    },
+    
+
   }
 </script>
 

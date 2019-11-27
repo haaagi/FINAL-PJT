@@ -37,6 +37,6 @@ def userlist(request):
 def userfollow(request,user_id):
     fan = request.user
     star = get_object_or_404(User, id=user_id)
-    star.stars.add(fan)
+    fan.stars.add(star)
     return Response(status=200)
     

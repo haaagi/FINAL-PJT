@@ -11,7 +11,7 @@
         </div>
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
-              <button class="btn btn-primary" data-toggle="modal" :data-target="`#movie-${movie.id}`">영화 정보 상세보기</button>
+              <button class="btn btn-primary" data-toggle="modal" :data-target="`#movie-${movie.id}`">상세보기</button>
           </p>
         </div>
         <MovieListItemModal :movie="movie" />

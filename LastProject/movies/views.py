@@ -29,6 +29,15 @@ def movielist(request):
 #     # 좋아요 나이 팔로우 
 #     user = get_object_or_404(User, id=user_id)
 
+@api_view(['GET'])
+def movie_like(request, movie_id):
+    movie = get_object_or_404(Movie, id=movie_id)
+    user = request.user
+    # if movie.like_users.filter(id=user.id).exists():
+    #     movie.like_users.remove(user)
+    # else:
+    movie.like_users.add(user)
+    return Response(status=200)
 
 
 
