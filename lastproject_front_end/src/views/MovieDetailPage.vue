@@ -1,9 +1,11 @@
 <template>
   <div class="movie-detail-page">
+    <MovieDetail :movie="movie" />
 
-    <router-view>
-    <MovieDetail :movie="movie"/>
-    </router-view>
+    
+    <router-view/>
+    
+
   </div>
 </template>
 
@@ -22,8 +24,11 @@ export default {
       movie: Object,
     }
   },
+  emit: {
+    movie: Object,
+  },
   mounted () {
-      router.push("/moviedetail");
+      router.push("/moviedetailpage");
     },
 
 }

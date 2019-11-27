@@ -1,6 +1,7 @@
 <template>
   <div :id="`movie-${movie.id}`">
     <div>
+    <h1>movie detail 나와라 ㅠㅠㅠ </h1>
   <b-card no-body class="overflow-hidden" style="max-width: 540px;">
     <b-row no-gutters>
       <b-col md="6">
@@ -37,7 +38,18 @@
     name: 'MovieDetail',
     props: {
       movie: Object,
-    }
+    }, 
+    // data() {
+    //   return {
+    //     selectedMovie: Object,
+    //   }
+    // },
+    // methods: {
+    //   selectGenre(movie) {
+    //     this.selectedMovie = this.movie;
+    //   }
+    // },
+
 
 
   }

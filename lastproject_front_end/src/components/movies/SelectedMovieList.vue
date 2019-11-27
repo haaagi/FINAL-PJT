@@ -36,6 +36,9 @@ export default {
     props:{
         movie: Object,
     }, 
+    emit : {
+      movie: Object,
+    }
     // mounted () {
     //   router.push("/moviedetail");
     // },
