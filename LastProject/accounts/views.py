@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response  # JSON 응답 생성기
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny  # 회원가입은, 인증을 볼 필요가 없음.
-
+from .models import User
 from .serilaizers import UserCreationSerializer, UserSerializer
 
 @api_view(['POST'])
@@ -21,6 +21,13 @@ def signup(request):
 def userinfo(request):
     serializer = UserSerializer(instance=request.user)
     # if serializer.is_valid():
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def userlist(request):
+    users = User.objects.all()
+    serializer = UserSerializer(instance=users, many=True)
     return Response(serializer.data)
 
 # @api_view(['POST'])   
