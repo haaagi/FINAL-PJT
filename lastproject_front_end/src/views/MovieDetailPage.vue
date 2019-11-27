@@ -1,6 +1,9 @@
 <template>
   <div class="movie-detail-page">
+
+    <router-view>
     <MovieDetailPage :movie="movie"/>
+    </router-view>
   </div>
 </template>
 
