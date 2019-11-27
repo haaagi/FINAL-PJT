@@ -6,6 +6,7 @@ const state = {
     token: null,
     errors: [],
     loading: false,
+    userinfo: [],
 };
 
 
@@ -28,6 +29,7 @@ const mutations = {
         sessionStorage.setItem('jwt', token);
     },
     pushError: (state, error) => state.errors.push(error),
+    setuserinfo: (state, info) => state.userinfo = info,
     clearErrors: state => state.errors = [],
 };
 
@@ -44,6 +46,7 @@ const actions = {
 
     login: ({ commit, getters }, credentials) => {
         if (getters.isLoggedIn) {
+            
             router.push('/home')
         } 
         else { // 로그인이 안됐다면
@@ -62,6 +65,18 @@ const actions = {
                 .then(token => {
                     commit('setToken',token.data.token);
                     commit('setLoading',false);
+                    const hash = sessionStorage.getItem('jwt');
+                
+                    const options = {
+                        headers: {
+                            Authorization:'JWT ' + hash
+                        }
+                    }
+                    axios.post('http://localhost:8000/api/accounts/userinfo/', null, options)
+                        .then(res => {
+                            console.log(res)
+                            commit('setuserinfo',res.data)
+                        })
                     router.push('/home');
                 })
                 .catch(err => {

@@ -11,7 +11,6 @@
 
 
 <script>
-import MovieDetail from'../components/movies/MovieDetail';
 import router from '../router';
 
 export default {

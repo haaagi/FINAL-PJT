@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,6 +27,36 @@ SECRET_KEY = '-3tw-m1t-sk9hkvfyl2_gp&369o5v@4(fr*^r+pzs2v34!b#wr'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+# REST_framework 설정
+REST_FRAMEWORK = {
+	# 로그인 여부를 확인하는 클래스
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+	# 인증 여부를 확인하는 클래스
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+
+# JWT 설정
+JWT_AUTH = {
+		# JWT를 encrypt함.절대 외부 노출 금지, default는 settings.SECRET_KEY
+    'JWT_SECRET_KEY': SECRET_KEY,
+		# 토큰 해싱 알고리즘(HMAC using SHA-256 hash algorithm (default)
+    'JWT_ALGORITHM': 'HS256',
+		# 토큰 갱신 허용 여부
+    'JWT_ALLOW_REFRESH': True,
+		# 1주일간 유효한 토큰 - default는 5분
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
+		# 28일 마다 토큰이 갱신(유효 기간 연장시)
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=28),
+}
 
 
 # Application definition

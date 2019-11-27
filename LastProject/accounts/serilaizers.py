@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
     review_set = ReviewSerializer(many=True)
     class Meta:
         model = User
-        fields = ('id','username','stars','review_set')
+        fields = ('id','username','stars', 'age', 'gender','kakao_id', 'review_set')
 
         
 

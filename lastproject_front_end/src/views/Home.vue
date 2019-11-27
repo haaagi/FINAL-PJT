@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <MovieList :movies="movies"/>
+    <UserDetail :userinfo="userinfo" />
   </div>
 </template>
 
@@ -10,19 +11,28 @@
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
 import MovieList from'../components/movies/MovieList';
-
+import UserDetail from '../components/accounts/UserDetail'
 export default {
-  name: 'home',
+  name: 'home', 
   components: {
     MovieList,
+    UserDetail,
   },
   data () {
     return {
       movies: [],
+      userinfo: [],
     }
   },
   created () {
-    axios.get('http://localhost:8000/api/movies/')
+    const hash = sessionStorage.getItem('jwt');
+    const options = {
+        headers: {
+            Authorization:'JWT ' + hash
+        }
+    }
+    console.log(hash)
+    axios.get('http://localhost:8000/api/movies/', options)
       .then(res=> this.movies = res.data)
       .catch(err => console.error(err))
   }
