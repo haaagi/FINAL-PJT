@@ -28,29 +28,31 @@
 
             <div class="form-group">
                 <label for="passwordConfirmation">PasswordConfirmation</label>
-                <input v-model="userInput.passwordConfirmation" type="text" class="form-control" id="username"
-                    placeholder="아이디를 입력해주세요">
+                <input v-model="userInput.passwordConfirmation" type="password" class="form-control" id="passwordConfirmation"
+                    placeholder="비밀번호를 확인해주세요">
             </div>
 
             <div class="form-group">
                 <label for="age">Age</label>
-                <input v-model="userInput.age" type="text" class="form-control" id="username"
-                    placeholder="아이디를 입력해주세요">
+                <input v-model="userInput.age" type="integer" class="form-control" id="age"
+                    placeholder="나이를 입력해주세요">
             </div>
 
             <div class="form-group">
                 <label for="gender">gender</label>
-                <input v-model="userInput.gender" type="text" class="form-control" id="username"
-                    placeholder="아이디를 입력해주세요">
+                <input v-model="userInput.gender" type="text" class="form-control" id="gender"
+                    placeholder="성별을 입력하세요">
             </div>
             
             <div class="form-group">
                 <label for="kakao_id">카카오톡 ID</label>
-                <input v-model="userInput.gender" type="text" class="form-control" id="username"
-                    placeholder="아이디를 입력해주세요">
+                <input v-model="userInput.kakao_id" type="text" class="form-control" id="kakao_id"
+                    placeholder="kakao ID를 입력하세요">
             </div>
-
-            <button class="btn btn-primary">로그인</button>
+            <div class="row">
+                <button class="btn btn-primary" @click.prevent="signup(userInfo)">회원가입</button>
+            </div>
+            
         </form>
     </div>
 
