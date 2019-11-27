@@ -17,14 +17,13 @@ import router from '../router';
 export default {
   name: 'home',
   components: {
-    MovieDetail,
   },
   data () {
     return {
-      movie: Object,
+      selecte_id: 0,
+      movieOne: [],
     }
   },
-
   mounted () {
       router.push("/moviedetailpage");
     },
