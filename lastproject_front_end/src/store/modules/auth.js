@@ -1,6 +1,6 @@
 const axios = require('axios');
 import router from '../../router';
-
+const HOST = process.env.VUE_APP_SERVER_HOST;
 
 const state = {
     token: null,
@@ -62,7 +62,7 @@ const actions = {
             commit('setLoading',false);
         }
         else {
-            axios.post('http://localhost:8000/api-token-auth/', credentials)
+            axios.post(HOST + 'api-token-auth/', credentials)
                 .then(token => {
                     commit('setToken',token.data.token);
                     commit('setLoading',false);
@@ -73,7 +73,7 @@ const actions = {
                             Authorization:'JWT ' + hash
                         }
                     }
-                    axios.post('http://localhost:8000/api/accounts/userinfo/', null, options)
+                    axios.post(HOST + 'api/accounts/userinfo/', null, options)
                         .then(res => {
                             console.log(res)
                             commit('setuserinfo',res.data)
@@ -100,7 +100,7 @@ const actions = {
         if (getters.isLoggedIn) {
             router.push('/home');
         } else {
-            axios.post('http://localhost:8000/api/accounts/', userInput)
+            axios.post(HOST + 'api/accounts/', userInput)
                 .then(res => {
                     console.log(res)
                     if (res.status === 200) {

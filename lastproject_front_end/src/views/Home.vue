@@ -6,6 +6,7 @@
 </template>
 
 <script>
+const HOST = process.env.VUE_APP_SERVER_HOST;
 
 // import router from '../router';
 const axios = require('axios'); 
@@ -30,7 +31,7 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-    axios.get('http://localhost:8000/api/movies/', options)
+    axios.get(HOST + 'api/movies/', options)
       .then(res=> this.movies = res.data)
       .catch(err => console.error(err))
     

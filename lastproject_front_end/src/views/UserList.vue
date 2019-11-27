@@ -4,8 +4,8 @@
           <li> {{ user.age }}</li>
           <div>
                    <div class="ui two buttons">
-        <div class="ui basic green button">팔로우</div>
-        <div class="ui basic red button">팔로우취소</div>
+        <div class="ui basic green button" >팔로우</div>
+
       </div>
 
           </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+const HOST = process.env.VUE_APP_SERVER_HOST;
 const axios = require('axios'); 
 export default {
     name: 'UserList',
@@ -22,6 +23,13 @@ export default {
             users: [],
         }
     },
+    method: {
+        nothing (star_id) {
+            // axios.get
+
+        }
+
+    },
     created () {
         const hash = sessionStorage.getItem('jwt');
         const options = {
@@ -29,7 +37,7 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-        axios.post('http://localhost:8000/api/accounts/userlist/',null , options)
+        axios.post(HOST + 'api/accounts/userlist/',null , options)
         .then(res=> this.users = res.data)
     }
 }
