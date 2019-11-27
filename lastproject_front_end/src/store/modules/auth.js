@@ -45,14 +45,15 @@ const actions = {
     login: ({ commit, getters }, credentials) => {
         if (getters.isLoggedIn) {
             router.push('/home')
-        } else { // 로그인이 안됐다면
+        } 
+        else { // 로그인이 안됐다면
             commit('clearErrors');
             commit('setLoading',true);
         if (!credentials.username) {
             commit('pushError', 'username can not be empty');
             commit('setLoading',false);
         }
-        if (!credentials.password < 8) {
+        if (credentials.password.length < 8) {
             commit('pushError','password must be at least 8');
             commit('setLoading',false);
         }
