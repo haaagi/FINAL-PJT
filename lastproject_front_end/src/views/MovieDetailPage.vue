@@ -11,23 +11,25 @@
 
 
 <script>
-import router from '../router';
+import {
+  mapGetters
+} from 'vuex'
+
 
 export default {
-  name: 'home',
+
+  name: 'MovieDetailPage',
   components: {
   },
-  data () {
-    return {
-    }
-  },
-  mounted () {
-      router.push("/moviedetailpage");
-    },
+  computed: {
+    ...mapGetters(['getmovieOne'])
+  }
+
 
 }
 
 </script>
+
 
 <style>
 </style>

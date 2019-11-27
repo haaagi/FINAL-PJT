@@ -17,11 +17,11 @@ def movielist(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def movie_detail(request, movie_id):
-    movie = get_object_or_404(Movie, id=movie_id)
-    serializer = MovieSerializer(instance=movie)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# def movie_detail(request, movie_id):
+#     movie = get_object_or_404(Movie, id=movie_id)
+#     serializer = MovieSerializer(instance=movie)
+#     return Response(serializer.data)
 
 
 # @api_view(['POST'])
