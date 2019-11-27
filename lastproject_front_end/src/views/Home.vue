@@ -30,7 +30,6 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-    console.log(hash)
     axios.get('http://localhost:8000/api/movies/', options)
       .then(res=> this.movies = res.data)
       .catch(err => console.error(err))

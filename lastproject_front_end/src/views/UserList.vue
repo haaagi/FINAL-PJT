@@ -1,7 +1,7 @@
 <template>
   <div>
       <ul v-for="user in users" :key="user.id">
-          <li> {{ user.username }}</li>
+          <li> {{ user.age }}</li>
       </ul>
   </div>
 </template>
@@ -22,9 +22,8 @@ export default {
             Authorization:'JWT ' + hash
         }
     }
-        axios.get('http://localhost:8000/api/accounts/' , options)
+        axios.post('http://localhost:8000/api/accounts/userinfo/',null , options)
         .then(res=> this.users = res.data)
-        .catch(err => console.error(err))
     }
 }
 </script>

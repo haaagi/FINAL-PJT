@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-
+from django.views.decorators.csrf import csrf_exempt #지워야 할것 
 from rest_framework.response import Response  # JSON 응답 생성기
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny  # 회원가입은, 인증을 볼 필요가 없음.
@@ -24,9 +24,10 @@ def userinfo(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
 def userlist(request):
-    print(request.data)
     users = User.objects.all()
     serializer = UserSerializer(instance=users, many=True)
     return Response(serializer.data)
