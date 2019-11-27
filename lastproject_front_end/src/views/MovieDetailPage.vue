@@ -2,7 +2,7 @@
   <div class="movie-detail-page">
 
     <router-view>
-    <MovieDetailPage :movie="movie"/>
+    <MovieDetail :movie="movie"/>
     </router-view>
   </div>
 </template>
@@ -15,7 +15,7 @@ import router from '../router';
 export default {
   name: 'home',
   components: {
-    // MovieDetail,
+    MovieDetail,
   },
   data () {
     return {

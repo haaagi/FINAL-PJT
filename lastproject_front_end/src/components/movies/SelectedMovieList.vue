@@ -12,10 +12,10 @@
         </div>
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
-              <b-button variant="primary">
-                <router-link to="/moviedetail">영화상세보기</router-link>
-                </b-button>
-            </p>
+            
+              <router-link tag="b-button" to="/moviedetailpage">go</router-link>
+            
+          </p>
         </div>
         <div class="card-action">
           <h4 class="content-title">{{ movie.title }}</h4>
@@ -29,12 +29,16 @@
 </template>
 
 <script>
+// import router from '../../router';
 
 export default {
     name: 'SelectedMovieList',
     props:{
         movie: Object,
     }, 
+    // mounted () {
+    //   router.push("/moviedetail");
+    // },
 
 
 }

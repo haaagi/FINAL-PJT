@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup'
+import MovieDetailPage from '../views/MovieDetailPage'
 
 Vue.use(VueRouter)
 
@@ -24,11 +25,11 @@ const router = new VueRouter({
     name: 'signup',
     component: Signup
   },
-  // {
-  //   path: '/moviedetailpage',
-  //   name: 'moviedetailpage',
-  //   component: MovieDetailPage
-  // }
+  {
+    path: '/moviedetailpage',
+    name: 'moviedetailpage',
+    component: MovieDetailPage
+  }
 ]
 })
 

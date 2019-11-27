@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+    <navbar />
       <span v-if="isLoggedIn">
         <router-link to="/">Home</router-link> |
         <a @click.prevent="logout" href="">Logout</a>
@@ -18,17 +19,21 @@
 </template>
 
 <script>
-// import navbar from './components/navbar';
+import navbar from './components/navbar';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
+  components: {
+    navbar,
+  },
   methods: {
     ...mapActions(['login', 'logout']),
   },
   computed: {
     ...mapGetters(['isLoggedIn']),
-  }
+  }, 
+  
 }
 </script>
 

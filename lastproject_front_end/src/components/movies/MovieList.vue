@@ -1,32 +1,24 @@
 <template>
   <div>
-<div class="container">
-  <b-nav pills align="center">
-    <b-nav-item-dropdown id="my-nav-dropdown" text="GENRE" toggle-class="nav-link-custom" right>
 
-      <b-dropdown-item @click="selectGenre(genre)" v-for="genre in genreList" :key="genre">{{ genre }}</b-dropdown-item>
-      <b-dropdown-divider></b-dropdown-divider>
+    <div class="container">
+      <b-nav pills align="center">
+        <b-nav-item-dropdown id="my-nav-dropdown" text="GENRE" toggle-class="nav-link-custom" right>
+          <b-dropdown-item @click="selectGenre(genre)" v-for="genre in genreList" :key="genre">{{ genre }}
+          </b-dropdown-item>
+          <b-dropdown-divider></b-dropdown-divider>
+        </b-nav-item-dropdown>
+      </b-nav>
 
-    </b-nav-item-dropdown>
-  </b-nav>
-
- 
       <b-card-body>
-          <b-card-text class="text-center row">
-            <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
-              {{ movie }}
-            </SelectedMovieList>
-          </b-card-text>
-
-        </b-card-body>
-
-  
-
-
-
-</div>
-
-
+        <b-card-text class="text-center row">
+          <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
+            {{ movie }}
+          </SelectedMovieList>
+        </b-card-text>
+      </b-card-body>
+    </div>
+    
   </div>
 </template>
 
@@ -37,7 +29,6 @@
   export default {
     name: 'MovieList',
     components: {
-      // MovieModal,
       SelectedMovieList,
     },
     props: {
@@ -61,7 +52,7 @@
           return this.movies;
         } else {
           return this.movies.filter(movie => movie.genre1 === this.selectedGenre || movie.genre3 === this
-          .selectedGenre);
+            .selectedGenre);
         }
       }
     },
