@@ -29,11 +29,14 @@
 </template>
 
 <script>
+
 export default {
     name: 'SelectedMovieList',
     props:{
         movie: Object,
-    }
+    }, 
+
+
 }
 </script>
 
