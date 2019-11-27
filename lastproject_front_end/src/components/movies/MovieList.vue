@@ -10,13 +10,11 @@
         </b-nav-item-dropdown>
       </b-nav>
 
-      <b-card-body>
-        <b-card-text class="text-center row">
+      <b-row>
           <SelectedMovieList v-for="movie in filterMovies" :key="movie.id" :movie="movie">
             {{ movie }}
           </SelectedMovieList>
-        </b-card-text>
-      </b-card-body>
+      </b-row>
     </div>
     
   </div>
