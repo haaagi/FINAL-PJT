@@ -1,16 +1,24 @@
 <template>
-  <div>
-    <button @click="recommend()">추천영화 보가
-    </button>
+  <!-- <div>
+    <button @click="recommend()">추천영화 보가</button>
     <div class="row">
         <div v-for="movie in n_movies" :key="movie.id">
-            <img :src="movie.poster_url" :alt="movie.title">
+            <img :src="movie.poster_url" >
         </div>
     </div>
-    
-      
-      
-  </div>
+  </div> -->
+
+<div>
+    <button @click="recommend()">추천영화 보가</button>
+    <div v-for="movie in n_movies" :key="movie.id" class=" col-10 col-sm-6 col-lg-4 col-xl-3">
+<div class="card" style="width: 18rem;">
+  <img :src="movie.poster_url" class="card-img-top" alt="...">
+
+</div>
+</div>
+</div>
+
+  
 </template>
 
 <script>
@@ -63,5 +71,4 @@ export default {
 </script>
 
 <style>
-
 </style>
