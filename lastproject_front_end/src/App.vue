@@ -40,7 +40,10 @@ export default {
   },
   computed: {
     ...mapGetters(['isLoggedIn']),
-  }, 
+  },
+  created () {
+    this.$store.dispatch('initialLogin')
+  }
   
 }
 </script>
