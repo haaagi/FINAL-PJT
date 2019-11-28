@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <RecommendMovie />
     <MovieList :movies="movies"/>
     
   </div>
@@ -12,12 +13,14 @@ const HOST = process.env.VUE_APP_SERVER_HOST;
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
 import MovieList from'../components/movies/MovieList';
-
+import RecommendMovie from '../components/movies/RecommendMovie';
 
 export default {
   name: 'home', 
   components: {
     MovieList,
+    RecommendMovie,
+
   },
   data () {
     return {

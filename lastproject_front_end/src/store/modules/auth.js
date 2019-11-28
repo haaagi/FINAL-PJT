@@ -109,7 +109,6 @@ const actions = {
                             password: userInput.password,
                         }
                         dispatch('login',credentials)
-                        router.push('/home')
                     } else {
                         router.push('/signup')
                     }}
