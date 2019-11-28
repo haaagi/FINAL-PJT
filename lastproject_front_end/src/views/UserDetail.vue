@@ -1,5 +1,5 @@
 <template>
-  <div class="user-detail">
+  <!-- <div class="user-detail">
     <h1>로그인됨</h1>
     <div>{{ getuserinfo.age }}</div>
     <div>{{ getuserinfo.username }}</div>
@@ -26,7 +26,24 @@
       </div>
     </div>
   </div>
+  </div> -->
+
+  <div class="card">
+  <h5 class="card-header">{{ getuserinfo.username }}</h5>
+  <div class="card-body">
+    <!-- <h5 class="card-title">Special title treatment</h5> -->
+    <div class="card-text">
+      <p>나이 : {{ getuserinfo.age }} </p>
+      <p>성별 : {{getuserinfo.age}}</p>
+      <p>KAKAO ID : {{ getuserinfo.kakao_id }}</p>
+      <!-- <p>팔로잉: {{getuserinfo.stars }}</p> -->
+    </div>
+
   </div>
+</div>
+
+
+
 </template>
 
 <script>
