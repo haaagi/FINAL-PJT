@@ -1,9 +1,8 @@
 <template>
 <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-      <router-link to="/"><b-navbar-brand href="#">Home</b-navbar-brand></router-link> 
+  <b-navbar toggleable="lg" type="light" variant="light">
+      <router-link to="/home" class="nav-link" role="menuitem" target="_self">Home</router-link>
     
-
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
@@ -47,13 +46,13 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Navbar',
   methods: {
-  ...mapActions(['login', 'logout']),
-},
-computed: {
-  ...mapGetters(['isLoggedIn']),
-}, 
+    ...mapActions(['login', 'logout']),
+  },
+  computed: {
+    ...mapGetters(['isLoggedIn']),
+  }, 
 
-}
+  }
 </script>
 
 <style>

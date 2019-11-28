@@ -82,7 +82,7 @@
             ...mapActions(['signup']),
         },
         computed: {
-            ...mapGetters(['getErrors']),
+            ...mapGetters(['getErrors','isLoading']),
         }
 
     }

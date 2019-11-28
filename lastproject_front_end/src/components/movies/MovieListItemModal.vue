@@ -1,72 +1,145 @@
 <template>
-<div class="modal fade" tabindex="-1" role="dialog" :id="`movie-${movie.id}`">
+  <div class="modal fade" tabindex="-1" role="dialog" :id="`movie-${movie.id}`">
 
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <h5 class="modal-title">{{ movie.title }}</h5>
-        
-        <button><i class="heart icon"></i></button>
-        <button><i class="heart outline icon"></i></button>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <img class="movie--poster my-3" :src="movie.poster_url" :alt="movie.name">
-        <div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>{{ movie.title }}({{movie.title_eng}})</h3>
+          <div class="ui labeled button" tabindex="0" @click="likeMovie">
+            <div class="ui red button">
+              <i class="heart icon"></i> Like
+            </div>
+          </div>
         </div>
-        <hr>
-        <p>{{ movie.description }}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="modal-body">
+          <img class="movie--poster my-3 imgess" :src="movie.poster_url" :alt="movie.name">
+          <div class="container icon-des">
+            <p><i class="calendar alternate icon"></i>개봉일 {{movie.open_date}}</p>
+            <p><i class="user alternate icon"></i> 관객수 {{movie.audience}}</p>
+            <p><i class="eye alternate icon"></i> 관람등급 {{movie.watch_grade}}</p>
+            <p><i class="star alternate icon"></i> 평점 {{movie.user_rating}}</p>
+          </div>
+          <hr>
+          <p>{{ movie.description }}</p>
+          <p><a :href="movie.naver_link">...더보기</a></p>
+
+          <hr>
+          <div class="container">
+            <form class="ui form row" @submit.prevent="createReview">
+
+              <div class="ten wide field ">
+                <label for="content">Review</label>
+                <input v-model="reviewInput.content" type="text" name="content" placeholder="review"
+                  :id="reviewInput.content">
+              </div>
+              <div class="three wide field ">
+                <label for="score">Score</label>
+                <input v-model="reviewInput.score" type="number" name="score" placeholder="score"
+                  :id="reviewInput.score">
+
+              </div>
+              <button class="ui button" type="submit">Submit</button>
+            </form>
+            <div class="ui list">
+
+              <div class="item" v-for="review in reviewList" :key="review.id">
+                <i class="facebook messenger icon"></i>
+                {{ review.content}} ({{review.score}})
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
-
-  <!-- <div :id="`movie-${movie.id}`">
-    <b-modal id="modal-center" centered title="BootstrapVue">
-      <div class="my-4">
-        <div>
-          <b-card :img-src="movie.poster_url" img-left class="mb-3">
-            <b-card-text>
-              <h4>{{ movie.title }}</h4>
-              <span>({{ movie.title_eng }})</span>
-
-              <div>
-                박스오피스 순위: {{ movie.rank }} | ({{ movie.audience }})
-                관람등급: {{ movie.watch_grade }}
-              </div>
-              <hr>
-              <div>
-                {{ movie.description }}
-                <a :href="movie.naver_link">...더보기</a>
-              </div>
-            </b-card-text>
-          </b-card>
-        </div>
-      </div>
-    </b-modal>
-  </div> -->
 
 </template>
 
 <script>
+  const HOST = process.env.VUE_APP_SERVER_HOST;
+  const axios = require('axios');
+
   export default {
     name: 'MovieListItemModal',
     props: {
       movie: Object,
+    },
+    data() {
+      return {
+        reviewInput: {
+          content: '',
+          score: 0,
+        },
+        reviewList: [],
+      }
+    },
+
+    methods: {
+      // clickLike(movie) {
+      //   this.clickedMovie = movie;
+      // },
+      likeMovie() {
+        const hash = sessionStorage.getItem('jwt');
+        const options = {
+          headers: {
+            Authorization: 'JWT ' + hash
+          }
+        }
+        axios.get(HOST + 'api/movielike/' + this.movie.id + '/', options)
+          .then(res => console.log(res))
+          .catch(err => console.error(err))
+
+      },
+
+      createReview() {
+        const hash = sessionStorage.getItem('jwt');
+        const options = {
+          headers: {
+            Authorization: 'JWT ' + hash
+          }
+        }
+        axios.post(HOST + 'api/reviews/new/' + this.movie.id + '/', this.reviewInput, options)
+          .then(res => {
+            if (res.status == 200) {
+              this.reviewList = res.data.review_set;
+            }
+          })
+          .catch(err => console.error(err))
+      },
+      // created() {
+      //   const hash = sessionStorage.getItem('jwt');
+      //     const options = {
+      //       headers: {
+      //         Authorization: 'JWT ' + hash
+      //       }
+      //     }
+      //   axios.get(HOST + `api/${this.movie.id}/reviews/`, options)
+      //     .then(res => {
+      //         console.log(res.data)
+      //         this.reviewList = res.data.review_set
+      //       })
+      // }
+
     }
   }
 </script>
 
 <style>
+  #modal-header {
+    text-align: center;
 
+  }
+
+  #imgess {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+    clear: both;
+  }
 </style>

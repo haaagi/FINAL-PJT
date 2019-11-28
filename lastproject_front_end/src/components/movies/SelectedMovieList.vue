@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+    <div class="col-10 col-sm-6 col-lg-4 col-xl-3">
  <div class="container catalog">
   <div class="row">
     <div class="col s4">
@@ -11,13 +11,13 @@
         </div>
         <div class="card-content content-details fadeIn">
           <p class="content-text" align="center">
-              <button class="btn btn-primary" data-toggle="modal" :data-target="`#movie-${movie.id}`">영화 정보 상세보기</button>
+              <button class="btn btn-primary" data-toggle="modal" :data-target="`#movie-${movie.id}`">상세보기</button>
           </p>
         </div>
         <MovieListItemModal :movie="movie" />
 
         <div class="card-action">
-          <h4 class="content-title">{{ movie.title }}</h4>
+          <!-- <h4 class="content-title">{{ movie.title }}</h4> -->
         </div>
       </div>
     </div>
@@ -112,5 +112,9 @@ export default {
 
 .content-title {
     font-size: 1em;
+}
+
+.card {
+  margin: 0.3em;
 }
 </style>

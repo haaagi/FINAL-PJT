@@ -1,9 +1,16 @@
-.vscode/
-venv/
-.env/
 
 # Created by https://www.gitignore.io/api/python,django
 # Edit at https://www.gitignore.io/?templates=python,django
+.vscode/
+.idea/
+venv/
+#db
+*.sqlite3
+# text backup file
+*.bak
+#환경설정 파일  pip install python-decouple
+.env
+
 
 ### Django ###
 *.log

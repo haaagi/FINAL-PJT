@@ -2,27 +2,13 @@
   <div id="app">
     <div id="nav">
     <Navbar />
-      <!-- <span v-if="isLoggedIn">
-        <router-link to="/">Home</router-link> |
-        <a @click.prevent="logout" href="">Logout</a> | 
-        <router-link to="/userdetail">userdetail</router-link> |
-        <router-link to="/userlist">userlist</router-link>
-      </span>
-      
-      <span v-else>
-        <div>
-          <router-link to="/login">로그인</router-link>
-        </div>
-        <div>
-          <router-link to="/signup">sign-up</router-link>
-        </div>
-      </span> -->
 
     </div>
     
     <div class="container col-6">
       <router-view/>
     </div>
+
   </div>
 </template>
 
@@ -40,7 +26,10 @@ export default {
   },
   computed: {
     ...mapGetters(['isLoggedIn']),
-  }, 
+  },
+  created () {
+    this.$store.dispatch('initialLogin')
+  }
   
 }
 </script>
@@ -55,4 +44,5 @@ export default {
  #nav {
   padding-top: 20px;
 }
+
 </style>

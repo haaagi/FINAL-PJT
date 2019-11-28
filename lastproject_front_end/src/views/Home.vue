@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <RecommendMovie :movies="movies"/>
     <MovieList :movies="movies"/>
     
   </div>
@@ -12,18 +13,22 @@ const HOST = process.env.VUE_APP_SERVER_HOST;
 const axios = require('axios'); 
 // import MovieHome from '../components/MovieHome';
 import MovieList from'../components/movies/MovieList';
-
-
+import RecommendMovie from '../components/movies/RecommendMovie';
 export default {
   name: 'home', 
   components: {
     MovieList,
+    RecommendMovie,
+
   },
   data () {
     return {
       movies: [],
     }
   },
+  methods: {
+    },
+
   created () {
     const hash = sessionStorage.getItem('jwt');
     const options = {
@@ -42,48 +47,4 @@ export default {
 </script>
 
 <style>
-/* body { font-family: sans-serif; }
-
-.scene {
-  width: 200px;
-  height: 260px;
-  border: 1px solid #CCC;
-  margin: 40px 0;
-  perspective: 600px;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform 1s;
-}
-
-.card.is-flipped {
-  transform: translateX(-100%) rotateY(-180deg);
-}
-
-.card__face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  line-height: 260px;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 40px;
-  backface-visibility: hidden;
-}
-
-.card__face--front {
-  background: red;
-}
-
-.card__face--back {
-  background: blue;
-  transform: rotateY(180deg);
-} */
 </style>

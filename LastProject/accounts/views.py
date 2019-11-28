@@ -37,6 +37,10 @@ def userlist(request):
 def userfollow(request,user_id):
     fan = request.user
     star = get_object_or_404(User, id=user_id)
-    fan.stars.add(star)
-    return Response(status=200)
+    if fan.stars.filter(id=user_id).exists():
+        fan.stars.remove(star)
+        return Response(status=200, data={'message':'팔로우 시작'})
+    else:
+        fan.stars.add(star)
+        return Response(status=200,data={'message':'팔로우 취소'})
     

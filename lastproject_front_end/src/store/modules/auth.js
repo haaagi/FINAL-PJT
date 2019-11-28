@@ -96,6 +96,12 @@ const actions = {
 
         }
     },
+    initialLogin: ({ commit }) => {
+        const token = sessionStorage.getItem('jwt');
+        if (token) {
+            commit('setToken', token)
+        }
+    },
     signup: ({ commit, getters, dispatch }, userInput) => {
         if (getters.isLoggedIn) {
             router.push('/home');
@@ -109,7 +115,6 @@ const actions = {
                             password: userInput.password,
                         }
                         dispatch('login',credentials)
-                        router.push('/home')
                     } else {
                         router.push('/signup')
                     }}
