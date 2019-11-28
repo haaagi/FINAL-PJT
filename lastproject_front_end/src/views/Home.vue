@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <RecommendMovie :getuserinfo="getuserinfo" :movies="movies"/>
+    <RecommendMovie :movies="movies"/>
     <MovieList :movies="movies"/>
     
   </div>
@@ -14,9 +14,6 @@ const axios = require('axios');
 // import MovieHome from '../components/MovieHome';
 import MovieList from'../components/movies/MovieList';
 import RecommendMovie from '../components/movies/RecommendMovie';
-import {
-    mapGetters
-  } from 'vuex';
 export default {
   name: 'home', 
   components: {
@@ -24,14 +21,14 @@ export default {
     RecommendMovie,
 
   },
-  computed: {
-    ...mapGetters(['getuserinfo'])
-  },
   data () {
     return {
       movies: [],
     }
   },
+  methods: {
+    },
+
   created () {
     const hash = sessionStorage.getItem('jwt');
     const options = {

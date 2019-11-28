@@ -6,7 +6,7 @@ from .models import Review, Movie
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ('id','movie_code','rank','audience','title','title_eng','open_date','genre1','genre2','genre3','watch_grade','poster_url','user_rating','naver_link','description',)
+        fields = ('id','movie_code','rank','audience','title','title_eng','open_date','genre1','genre2','genre3','watch_grade','poster_url','user_rating','naver_link','description','like_users')
 
 
 class ReviewSerializer(serializers.ModelSerializer):

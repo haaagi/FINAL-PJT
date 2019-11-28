@@ -2,40 +2,53 @@
   <div>
     <button @click="recommend()">추천영화 보가
     </button>
-    <div v-for="movie in new_movies" :key="movie.id">
-        <img :src="movie.poster_url" :alt="movie.title">
+    <div class="row">
+        <div v-for="movie in n_movies" :key="movie.id">
+            <img :src="movie.poster_url" :alt="movie.title">
+        </div>
     </div>
+    
       
       
   </div>
 </template>
 
 <script>
+import {
+    mapGetters
+  } from 'vuex';
 export default {
     name:'RecommendMovie',
     data () {
         return {
             new_movies: [],
+            temp: [],
+            n_movies:[],
         }
-    },
-    computed: {
-        
     },
     props: {
         movies: Array,
-        getuserinfo: Array,
+    },
+    computed: {
+        ...mapGetters(['getuserinfo'])
     },
     methods: {
         recommend () {
-            for (var i=0; i<this.getuserinfo.stars.length; i++) {
-                for (var j=0; j<this.movies.length; j++) {
-                    for (var x =0; x <this.movies[j].like_users.length; x++) {
-                        if(this.movies[j].like_users[x] === this.getuserinfo.start[i]) {
-                            this.new_movies.push(this.movies[j])
+            for (var key in this.getuserinfo) {
+                if (key === 'stars') {
+                    this.temp = this.getuserinfo[key]
+                }
+                for (var i in this.temp) {
+                    for (var k in this.movies) {
+                        for (var j in this.movies[k]['like_users']) {
+                            if (this.temp[i] === this.movies[k]['like_users'][j]) {
+                                this.new_movies.push(this.movies[k])
+                            }
                         }
                     }
                 }
             }
+            this.n_movies = new Set(this.new_movies)
         }  
     }
     // filterMovies() {
