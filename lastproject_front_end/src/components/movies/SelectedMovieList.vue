@@ -113,4 +113,8 @@ export default {
 .content-title {
     font-size: 1em;
 }
+
+.card {
+  margin: 0.3em;
+}
 </style>
