@@ -1,6 +1,15 @@
+# 
 .vscode/
+.idea/
+
+# Virtual ENV
 venv/
-.env/
+# DB
+*.sqlite3
+# Text backup file
+*.bak 
+# 환경 설정 파일 $ pip install python-decouple
+.env
 
 # Created by https://www.gitignore.io/api/python,django
 # Edit at https://www.gitignore.io/?templates=python,django

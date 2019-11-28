@@ -4,37 +4,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-
-          <!-- <h5 class="modal-title">{{ movie.title }}</h5> -->
           <h3>{{ movie.title }}({{movie.title_eng}})</h3>
-
-          <!-- <button @click="likeMovie(movie.id)"><i class="heart icon"></i></button>
-        <button><i class="heart outline icon"></i></button> -->
-
-          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-
           <div class="ui labeled button" tabindex="0" @click="likeMovie">
             <div class="ui red button">
               <i class="heart icon"></i> Like
             </div>
-
           </div>
-
         </div>
         <div class="modal-body">
-
           <img class="movie--poster my-3 imgess" :src="movie.poster_url" :alt="movie.name">
-
           <div class="container icon-des">
             <p><i class="calendar alternate icon"></i>개봉일 {{movie.open_date}}</p>
             <p><i class="user alternate icon"></i> 관객수 {{movie.audience}}</p>
             <p><i class="eye alternate icon"></i> 관람등급 {{movie.watch_grade}}</p>
-
             <p><i class="star alternate icon"></i> 평점 {{movie.user_rating}}</p>
-
-
           </div>
           <hr>
           <p>{{ movie.description }}</p>
@@ -43,25 +26,29 @@
           <hr>
           <div class="container">
             <form class="ui form row" @submit.prevent="createReview">
-              <div class="twelve wide field ">
+
+              <div class="ten wide field ">
                 <label for="content">Review</label>
-                <input v-model="reviewInput.content" type="text" name="content" placeholder="review" :id="reviewInput.content" >
+                <input v-model="reviewInput.content" type="text" name="content" placeholder="review"
+                  :id="reviewInput.content">
               </div>
               <div class="three wide field ">
                 <label for="score">Score</label>
-                <input v-model="reviewInput.score" type="number" name="score" placeholder="score" :id="reviewInput.score">
-              </div>
+                <input v-model="reviewInput.score" type="number" name="score" placeholder="score"
+                  :id="reviewInput.score">
 
+              </div>
               <button class="ui button" type="submit">Submit</button>
             </form>
-            <ul>
-              <li v-for="review in reviewList" :key="review.id">
-                {{ review.content}}
-              </li>
-            </ul>
+            <div class="ui list">
+
+              <div class="item" v-for="review in reviewList" :key="review.id">
+                <i class="facebook messenger icon"></i>
+                {{ review.content}} ({{review.score}})
+              </div>
+            </div>
+
           </div>
-
-
 
         </div>
         <div class="modal-footer">
@@ -86,7 +73,7 @@
     data() {
       return {
         reviewInput: {
-          content: '', 
+          content: '',
           score: 0,
         },
         reviewList: [],
@@ -110,20 +97,20 @@
 
       },
 
-        createReview() {
-          const hash = sessionStorage.getItem('jwt');
-          const options = {
-            headers: {
-              Authorization: 'JWT ' + hash
-            }
+      createReview() {
+        const hash = sessionStorage.getItem('jwt');
+        const options = {
+          headers: {
+            Authorization: 'JWT ' + hash
           }
-          axios.post(HOST + 'api/reviews/new/' + this.movie.id + '/', this.reviewInput, options)
-            .then(res => {
-              if(res.status == 200) {
-                  this.reviewList = res.data.review_set;
-              }
-            })
-            .catch(err => console.error(err))
+        }
+        axios.post(HOST + 'api/reviews/new/' + this.movie.id + '/', this.reviewInput, options)
+          .then(res => {
+            if (res.status == 200) {
+              this.reviewList = res.data.review_set;
+            }
+          })
+          .catch(err => console.error(err))
       },
       // created() {
       //   const hash = sessionStorage.getItem('jwt');
