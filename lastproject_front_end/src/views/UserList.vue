@@ -1,10 +1,13 @@
 <template>
   <div>
       <ul v-for="user in users" :key="user.id">
-          <li> {{ user.age }}</li>
-          <div>
-            <div @click="follow(user.id)" class="ui basic green button">팔로우</div>
-          </div>
+        <li> {{ user.username }}</li>
+        <div v-if="!flag">
+            <button @click="follow(user.id)" class="ui basic green button">팔로우</button>
+        </div>
+        <div v-else>
+            <button @click="follow(user.id)" class="ui basic green button">팔로우 취소</button>
+        </div>
       </ul>
   </div>
 </template>
@@ -17,11 +20,13 @@ export default {
     data () {
         return {
             users: [],
+            flag:0,
 
         }
     },
     methods: {
         follow (star_id) {
+            this.flag = !this.flag
             const hash = sessionStorage.getItem('jwt');
             const options = {
             headers: {
@@ -29,7 +34,10 @@ export default {
             }
         }
             axios.get(HOST + 'api/accounts/userfollow/'+star_id + '/', options)
-            .then(res=> console.log(res))
+            .then(res=> {
+                console.log(res)
+                this.resdata = res.data
+            })
             .catch(err => console.error(err))
             
         }
