@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+    <div class="col-10 col-sm-6 col-lg-4 col-xl-3">
  <div class="container catalog">
   <div class="row">
     <div class="col s4">
@@ -17,7 +17,7 @@
         <MovieListItemModal :movie="movie" />
 
         <div class="card-action">
-          <h4 class="content-title">{{ movie.title }}</h4>
+          <!-- <h4 class="content-title">{{ movie.title }}</h4> -->
         </div>
       </div>
     </div>
