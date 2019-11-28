@@ -1,6 +1,7 @@
 <template>
   <div class="user-detail">
     <h1>로그인됨</h1>
+    <div>{{getuserinfo.stars}}</div>
     <div>{{ getuserinfo.age }}</div>
     <div>{{ getuserinfo.username }}</div>
     <button>팔로우</button>
