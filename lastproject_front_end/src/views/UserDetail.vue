@@ -45,7 +45,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Exo:700');
 @import url('https://fonts.googleapis.com/css?family=Abel');
 body {

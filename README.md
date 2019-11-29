@@ -56,7 +56,7 @@
 
 ### 00. Trello 사용
 
-![1574945128820](C:\Users\user\AppData\Roaming\Typora\typora-user-images\1574945128820.png)
+![1574986073419](C:\Users\student\AppData\Roaming\Typora\typora-user-images\1574986073419.png)
 
 프로젝트 일정과 진행 사항을 관리하기 위해 Trello 사용 
 
@@ -147,7 +147,7 @@
 
 ## 02_데이터베이스 모델링 (ERD)
 
-![1574944706760](C:\Users\user\AppData\Roaming\Typora\typora-user-images\1574944706760.png)
+![1574986084572](C:\Users\student\AppData\Roaming\Typora\typora-user-images\1574986084572.png)
 
 
 
@@ -207,11 +207,5 @@ $ firebase deploy --only hosting
 
 ## 05_후기
 
-* 정병학 
-
-
-
-* 홍수경
-
-  
+ 이전의 프로젝트오 달리 웹 서버 배포를 위해 기획, 데이터 수집 등 모든 영역을 팀원과 함께 프로젝트를 진행하여 소프트웨어 개발를 아주 조금 간접적으로 경험할 수 있었습니다. 이번 프로젝트의 결과물은 부족한 부분이 많지만 Vue 를 통해 프런트엔드를 다뤄서 Vue 를 학습하며 어느정도 사용할 수 있게 된것으로 만족했습니다. 한가지 가장 크게 아쉬운 부분이 있다면 프론트엔드를 vue 를 통해 진행했기 때문에 컴포넌트를 프랍하는 과정의 문제인지 css 를 할 수록 계속 에러가 나서 디자인을 원하는 데로 진행하지 못한 부분이 아쉬웠습니다.
 
