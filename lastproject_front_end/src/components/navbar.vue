@@ -1,6 +1,6 @@
 <template>
 <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="light" variant="light">
       <router-link to="/home" class="nav-link" role="menuitem" target="_self">Home</router-link>
     
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

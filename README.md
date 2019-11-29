@@ -56,7 +56,11 @@
 
 ### 00. Trello 사용
 
+<<<<<<< HEAD
 ![image-20191129090548053](C:\Users\multicampus\AppData\Roaming\Typora\typora-user-images\image-20191129090548053.png)
+=======
+![1574986073419](C:\Users\student\AppData\Roaming\Typora\typora-user-images\1574986073419.png)
+>>>>>>> a0e963cc4366ead2752c976ead32c3bb69a37b1e
 
 프로젝트 일정과 진행 사항을 관리하기 위해 Trello 사용 
 
@@ -112,6 +116,37 @@
    
 
 2. 모든 영화와 장르별 영화 보여주기 
+<<<<<<< HEAD
+
+   
+
+### 04. Day 4 (2019.11.27)
+
+1. MovieDetail 구현
+   * 새로운 싱글 페이지로 연동하기 위해 router를 시도 
+   * movie.id 를 props 와 emit 과정에서 문제가 지속적으로 발생
+   * 이전의 프로젝트 중 실현한 Modal 을 통해 영화 상세정보를 제공 
+
+2. 영화 좋아요 
+
+3. user 팔로우 
+
+   
+
+### 05. Day 5 (2019.11.28)
+
+1. 영화 추천 알고리즘 
+2. Vue 기능 구현 및 CSS 수정 
+3. 영화 리뷰 작성
+4. 서버배포
+   1. gitignore 관리 
+   2.  Heroku 를 통해 백엔드인 Djago 서버 연결 
+   3. Firebase 를 통해 프론트엔드인 Vue.js 서버 연결 후 배포
+5. README 작성
+   * ERD 시각화 
+   * 발표자료 준비 
+=======
+>>>>>>> a0e963cc4366ead2752c976ead32c3bb69a37b1e
 
    
 
@@ -142,6 +177,12 @@
    * 발표자료 준비 
 
 
+
+
+
+## 02_데이터베이스 모델링 (ERD)
+
+![1574986084572](C:\Users\student\AppData\Roaming\Typora\typora-user-images\1574986084572.png)
 
 
 
