@@ -1,9 +1,9 @@
 <template>
   <div class="user-detail">
-    <h1>로그인됨</h1>
+    <!-- <h1>로그인됨</h1>
     <div>{{ getuserinfo.age }}</div>
     <div>{{ getuserinfo.username }}</div>
-    <button>팔로우</button>
+    <button>팔로우</button> -->
 
 
     <div class="card">

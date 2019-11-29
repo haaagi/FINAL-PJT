@@ -1,11 +1,18 @@
 <template>
   <div>
-      <ul v-for="user in users" :key="user.id">
-        <li> {{ user.username }}</li>
-        <div v-if="!flag">
+    <!-- <div v-for="user in users" :key="user.id">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">{{user.username}}</button>
+            <button @click="follow(user.id)" type="button" class="btn btn-secondary">팔로우</button>
+            <button @click="follow(user.id)" type="button" class="btn btn-secondary">언팔</button>
+        </div>
+    </div> -->
+      <ul class=list-group list-group-horizontal v-for="user in users" :key="user.id">
+        <li class="list-group-item"> {{ user.username }}</li>
+        <div class="list-group-item">
             <button @click="follow(user.id)" class="ui basic green button">팔로우</button>
         </div>
-        <div v-else>
+        <div class="list-group-item">
             <button @click="follow(user.id)" class="ui basic green button">팔로우 취소</button>
         </div>
       </ul>
