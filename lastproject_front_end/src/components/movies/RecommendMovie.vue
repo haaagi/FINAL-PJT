@@ -31,7 +31,7 @@
             </div>
         </div> -->
         <div class="title">
-            <h1><span style="color: #ff9f43">H</span><span style="color: #0abde3">AAA</span> <span
+            <h1><span style="color: #ff9f43">H</span><span style="color: #0abde3">AA</span> <span
                     style="color: #ee5253">GI</span><span style="color: #00d2d3">SOO</span><span
                     style="color: #5f27cd">YA</span></h1>
         </div>
