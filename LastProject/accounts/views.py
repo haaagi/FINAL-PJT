@@ -37,10 +37,14 @@ def userlist(request):
 def userfollow(request,user_id):
     fan = request.user
     star = get_object_or_404(User, id=user_id)
-    if fan.stars.filter(id=user_id).exists():
-        fan.stars.remove(star)
-        return Response(status=200, data={'message':'팔로우 시작'})
+    if star.stars.filter(id=fan.id).exists():
+        star.stars.remove(fan)
+        users = User.objects.all()
+        serializer = UserSerializer(instance=users, many=True)
+        return Response(serializer.data)
     else:
-        fan.stars.add(star)
-        return Response(status=200,data={'message':'팔로우 취소'})
+        star.stars.add(fan)
+        users = User.objects.all()
+        serializer = UserSerializer(instance=users, many=True)
+        return Response(serializer.data)
     

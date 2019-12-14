@@ -1,12 +1,19 @@
 <template>
   <div>
       <ul class=list-group list-group-horizontal v-for="user in users" :key="user.id">
-        <li class="list-group-item"> {{ user.username }}// {{user.stars}}</li>
-        <div class="list-group-item">
-            <button @click="follow(user.id)" class="ui basic green button">팔로우</button>
-        </div>
-        <div class="list-group-item">
-            <button @click="follow(user.id)" class="ui basic green button">팔로우 취소</button>
+        <div v-if="getuserinfo.id!=user.id">
+            {{user.username}}
+            <li class="list-group-item" v-if="getuserinfo.id in user.stars">
+                {{user.stars}}
+                <!-- <div class="list-group-item"> -->
+                <button @click="follow(user.id)" class="ui basic green button">팔로우 취소</button>
+                <!-- </div> -->
+            <li class="list-group-item" v-else>
+                {{user.stars}}
+                <!-- <div class="list-group-item"> -->
+                <button @click="follow(user.id)" class="ui basic green button">팔로우</button>
+                <!-- </div> -->
+            </li>
         </div>
       </ul>
   </div>
@@ -42,7 +49,7 @@ export default {
             axios.get(HOST + 'api/accounts/userfollow/'+star_id + '/', options)
             .then(res=> {
                 console.log(res)
-                this.resdata = res.data
+                this.users = res.data
             })
             .catch(err => console.error(err))
             
