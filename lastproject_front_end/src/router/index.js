@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Signup from '../views/Signup'
 import UserDetail from '../views/UserDetail'
 import UserList from '../views/UserList'
+import MovieDetail from '../views/MovieDetail'
 
 
 Vue.use(VueRouter)
@@ -36,7 +37,12 @@ const router = new VueRouter({
     path: '/userlist',
     name: 'userlist',
     component: UserList,
-  }
+  },
+  {
+    path: '/moviedetail',
+    name: 'moviedetail',
+    component: MovieDetail,
+  },
 ]
 })
 

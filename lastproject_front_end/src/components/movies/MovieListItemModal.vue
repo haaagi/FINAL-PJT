@@ -23,6 +23,8 @@
           <p>{{ movie.description }}</p>
           <p><a :href="movie.naver_link">...더보기</a></p>
 
+          <p><router-link to="/moviedetail" >클릭 </router-link></p>
+
           <hr>
           <div class="container">
             <form class="ui form row" @submit.prevent="createReview">
