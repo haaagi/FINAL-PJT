@@ -23,7 +23,8 @@
           <p>{{ movie.description }}</p>
           <p><a :href="movie.naver_link">...더보기</a></p>
 
-          <p><router-link to="/moviedetail" >클릭 </router-link></p>
+          <!-- 무비 디테일!!!! -->
+          <button><router-link to="/moviedetail" >클릭 </router-link></button>
 
           <hr>
           <div class="container">
@@ -66,6 +67,9 @@
 <script>
   const HOST = process.env.VUE_APP_SERVER_HOST;
   const axios = require('axios');
+
+ import { mapGetters } from 'vuex';
+
 
   export default {
     name: 'MovieListItemModal',
@@ -127,8 +131,12 @@
       //         this.reviewList = res.data.review_set
       //       })
       // }
-
+    }, 
+    computed: {
+      ...mapGetters(['getMovieid'])
     }
+    //
+
   }
 </script>
 

@@ -3,33 +3,36 @@ import router from '../../router';
 
 
 const state = {
-    movieOne: '',
+    movieid: 0,
 };
 
 
 const getters = {
-    getmovieOne: state => state.movieOne
+    getMovieid: state => state.movieid
 };
 
 const mutations = {
-    setmovieOne: (state, one) => state.movieOne = one
+    setMovieid: (state, movieid) => {
+        state.movieid = movieid
+        sessionStorage.setItem('movie', movieid);
+    },
 };
 
 const actions = {
-    selectMovie: ({ commit, getters }) => {
-        const hash = sessionStorage.getItem('jwt');
-        const options = {
-          headers: {
-            Authorization: 'JWT ' + hash
-          }
-        }
-        axios.get(HOST + 'api/movie_detail/' + this.movie.id + '/', options)
-          .then(res => console.log(res))
-          .catch(err => console.error(err))
+    // pushtoMovie: ({ commit }, movie) => {
+    //     // commit('setMovie', movie)
+    //     const movieid = movie.id
+    //     commit('setMovieid', movieid)
+    // },
 
+    getmoviedetail: ({ commit }, movieid) => {
+        axios.get(HOST + 'api/movie_detail/' + this.movie.id + '/', options)
+        .then(res => {
+            commit('setMovieid', res.data)
+        })
     }
-    
 }
+
 export default {
     state, getters, mutations, actions
 }

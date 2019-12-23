@@ -30,6 +30,7 @@
 <script>
 // import router from '../../router';
 import MovieListItemModal from './MovieListItemModal';
+// import {mapGetters} from 'vuex'; 
 
 export default {
     name: 'SelectedMovieList',
@@ -39,9 +40,14 @@ export default {
     components: {
       MovieListItemModal,
     },
+    // computed: {
+    //   ...mapGetters(['getmovieOne'])
+    // }
     
 
 }
+
+
 </script>
 
 <style>

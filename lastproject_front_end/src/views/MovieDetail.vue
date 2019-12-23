@@ -1,20 +1,23 @@
 <template>
   <div class="moviedetail">
       <router-view />
- <h3> {{ getmovieOne.title }} </h3>
+ <h3>{{ getMovieid.title }} </h3>
   </div>
 </template>
 
 <script>
-  import {
-    mapGetters
-  } from 'vuex';
-  export default {
-    name: 'MovieDetail',
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+    name: 'Moviedetail',
     computed: {
-      ...mapGetters(['getmovieOne'])
+      ...mapGetters(['getMovieid'])
+    },
+    methods: {
+      ...mapActions(['getmoviedetail'])
     }
-  }
+
+}
 </script>
 
 <style>
